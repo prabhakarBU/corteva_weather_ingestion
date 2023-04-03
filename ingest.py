@@ -9,11 +9,19 @@ import datetime
 import os
 import summarize
 import json
+import configparser
 
-connection = pymysql.connect(host='localhost',
-                             user='root',
-                             password='root',
-                             db='cortevaweather')
+config = configparser.ConfigParser()
+config.read('dbconfig.ini')
+
+print('config read----')
+print(config['mysqlDB']['host'])
+print('localhost')
+
+connection = pymysql.connect(host=config['mysqlDB']['host'],
+                             user=config['mysqlDB']['user'],
+                             password=config['mysqlDB']['pass'],
+                             db=config['mysqlDB']['db'])
 
 with open("urls.json", "r", encoding="utf8") as file_object:
     urls = json.load(file_object)
@@ -45,7 +53,6 @@ def ingest(files):
                 cursor.execute(sql,(filename,df.iloc[line, 0], df.iloc[line, 1],df.iloc[line, 2],df.iloc[line, 3]))
                 connection.commit()
                 inserted+=cursor.rowcount
-                # connection.close()
             
             print ("Ended Ingesting date and time : ")
             print (datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
@@ -55,7 +62,6 @@ def ingest(files):
         print(e)
 
     finally:
-        # close the database connection using close() method.
         connection.close()
     
 def main():

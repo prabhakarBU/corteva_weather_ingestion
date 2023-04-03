@@ -1,19 +1,20 @@
 To clone above project:
-git clone https://github.com/prabhakarBU/cortevaWeatherIngestion.git
+```git clone https://github.com/prabhakarBU/cortevaWeatherIngestion.git```
 
 Next,go the project folder 'corteva_weather-ingestion'
 
 Create the database:
-Run Data-Model.sql to create the database and tables required.
+Run Data-Model.sql to create the database and the tables required.
 Run the Stored Procedure weatherDataSummary.sql that creates the data model to summarize the analyzed data.
 
-Run pip install -r requirements.txt
+Run the following command to install the modules required:
+```pip install -r requirements.txt```
 
-If you are ingesting hosted files using Apis:
-Add the path to urls under urls.json under 'urls' node array.
+If you are ingesting hosted files using Apis: ( default for this project )
+Add the path to urls under 'urls.json' under 'urls' node array.
 Our ingest function will read those urls.
 
-Run python ingest.py to ingest the raw text files.
+Run ``` python ingest.py ``` to ingest the raw text files.
 
 Deployment/Scheduling:
 Approach 1: ( Cron based )

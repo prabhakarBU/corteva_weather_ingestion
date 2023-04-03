@@ -1,9 +1,13 @@
 import pymysql
+import configparser
 
-connection = pymysql.connect(host='localhost',
-                             user='root',
-                             password='root',
-                             db='cortevaweather')
+config = configparser.ConfigParser()
+config.read('dbconfig.ini')
+
+connection = pymysql.connect(host=config['mysqlDB']['host'],
+                             user=config['mysqlDB']['user'],
+                             password=config['mysqlDB']['pass'],
+                             db=config['mysqlDB']['db'])
 
 
 class summarizeWeatherData:
