@@ -9,6 +9,10 @@ Run the Stored Procedure weatherDataSummary.sql that creates the data model to s
 
 Run pip install -r requirements.txt
 
+If you are ingesting hosted files using Apis:
+Add the path to urls under urls.json under 'urls' node array.
+Our ingest function will read those urls.
+
 Run python ingest.py to ingest the raw text files.
 
 Deployment/Scheduling:

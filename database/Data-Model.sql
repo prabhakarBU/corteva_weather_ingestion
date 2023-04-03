@@ -12,8 +12,8 @@ CREATE TABLE cortevaweather.weatherData (
 CREATE TABLE cortevaweather.weatherDataSummary (
  stationId varchar(255) not null,
  year smallint not null,
- averageMaxTemp int default 0,
- averageMinTemp int default 0,
- totalPrecipitation int default 0,
+ averageMaxTemp FLOAT default 0,
+ averageMinTemp FLOAT default 0,
+ totalPrecipitation FLOAT default 0,
  primary key (stationId, year)
 );

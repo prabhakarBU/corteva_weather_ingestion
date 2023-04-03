@@ -1,0 +1,13 @@
+{
+    "urls": [
+    "https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00110072.txt",
+    "https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00110187.txt",
+    "https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00110338.txt",
+    "https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00111280.txt",
+    "https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00111436.txt",
+    "https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00112140.txt",
+    "https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00112193.txt",
+    "https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00112348.txt",
+    "https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00112483.txt"
+    ]
+}

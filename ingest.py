@@ -8,23 +8,15 @@ import pymysql
 import datetime
 import os
 import summarize
+import json
 
 connection = pymysql.connect(host='localhost',
                              user='root',
                              password='root',
                              db='cortevaweather')
 
-urls = [
-    'https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00110072.txt',
-    'https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00110187.txt',
-    'https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00110338.txt',
-    'https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00111280.txt',
-    'https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00111436.txt',
-    'https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00112140.txt',
-    'https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00112193.txt',
-    'https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00112348.txt',
-    'https://raw.githubusercontent.com/corteva/code-challenge-template/main/wx_data/USC00112483.txt',
-    ]
+with open("urls.json", "r", encoding="utf8") as file_object:
+    urls = json.load(file_object)
 
 def ingest(files):
     try:
@@ -41,10 +33,10 @@ def ingest(files):
             # 'mintemp': int,'precipitation':int})
             # print(df)
             parsefileurl = urlparse(file)
-            print(parsefileurl.path)
-            print(os.path.basename(parsefileurl.path))
+            # print(parsefileurl.path)
+            # print(os.path.basename(parsefileurl.path))
             filename = os.path.basename(parsefileurl.path)[0:os.path.basename(parsefileurl.path).index('.')]
-            print (filename)
+            # print (filename)
             cursor = connection.cursor()
             inserted = 0
             for line in range(len(df)):
@@ -67,7 +59,7 @@ def ingest(files):
         connection.close()
     
 def main():
-    # ingest(urls)
+    ingest(urls['urls'])
     summarize.summarizeWeatherData.summarize()
 
 
