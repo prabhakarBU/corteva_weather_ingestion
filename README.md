@@ -2,13 +2,17 @@ To run above project:
 
 git clone https://github.com/prabhakarBU/cortevaWeatherIngestion.git
 
-Go the project foler.
+Go the project folder.
+
+Create the database:
+Run Data-Model.sql to create the database and tables required.
+Run the Stored Procedure weatherDataSummary.sql that creates the data model to summarize the analyzed data.
 
 Run pip install -r requirements.txt
 
 Run python ingest.py to ingest the raw text files.
 
-Deployment:
+Deployment/Scheduling:
 Approach 1: ( Cron based )
 Could create cron jobs that run in 10 minute intervals ( depending on how often the files are put on the server )
 eg. */10 * * * * cd /corteva_weather_ingestion && /usr/bin/python ingest.py > /tmp/ingest.log 2>&1
