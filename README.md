@@ -1,8 +1,7 @@
-To run above project:
-
+To clone above project:
 git clone https://github.com/prabhakarBU/cortevaWeatherIngestion.git
 
-Go the project folder.
+Next,go the project folder 'corteva_weather-ingestion'
 
 Create the database:
 Run Data-Model.sql to create the database and tables required.
