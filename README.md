@@ -25,7 +25,7 @@ If you are ingesting hosted files using Apis: ( default for this project )
 Add the path to urls under ```urls.json``` under 'urls' node array.
 Our ingest function will read those urls.
 
-Run ``` python ingest.py ``` to ingest the raw text files.
+Run ``` python ingest.py ``` to ingest the raw text files which also calls the summarizer/anaylyzer Stored Procedure ``` weatherDataSummary``` and puts the anaylyzed data to the summarization table ```weatherDataSummary``` .
 
 Deployment/Scheduling:
 Approach 1: ( Cron based )
